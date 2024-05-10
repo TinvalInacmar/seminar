@@ -61,8 +61,7 @@ def get_samples(root, folder_to_idx, extensions):
     return samples
 
 #                       0       1         2          3       4               5           6            7
-FER_BASE_CLASSES = ['Anger', 'Disgust', 'Fear', 'Sadness', 'Happiness', 'Surprise', 'Neutral', ]
-                    # 'Contempt']
+FER_BASE_CLASSES = ['Anger', 'Disgust', 'Fear', 'Sadness', 'Happiness', 'Surprise', 'Neutral', 'Contempt']
 
 def convert2coarse_label(i:int):
     """The first four are negative"""

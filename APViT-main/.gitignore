@@ -111,11 +111,10 @@ venv.bak/
 *.pkl
 *.pkl.json
 *.log.json
-work_dirs/
 output/
 afs
 afsout
-weights
+
 .history
 .DS_Store
 

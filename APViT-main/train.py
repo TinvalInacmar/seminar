@@ -138,13 +138,13 @@ def main():
         val_dataset = copy.deepcopy(cfg.data.val)
         # val_dataset.pipeline = cfg.data.val.pipeline
         datasets.append(build_dataset(val_dataset))
-    if cfg.checkpoint_config is not None:
-        # save mmcls version, config file content and class names in
-        # checkpoints as meta data
-        cfg.checkpoint_config.meta = dict(
-            mmcls_version=__version__,
-            config=cfg.pretty_text,
-            CLASSES=datasets[0].CLASSES)
+    # if cfg.checkpoint_config is not None:
+    #     # save mmcls version, config file content and class names in
+    #     # checkpoints as meta data
+    #     cfg.checkpoint_config.meta = dict(
+    #         mmcls_version=__version__,
+    #         config=cfg.pretty_text,
+    #         CLASSES=datasets[0].CLASSES)
     # add an attribute for visualization convenience
     print(f'Train on {len(datasets[0])} samples')
     train_model(

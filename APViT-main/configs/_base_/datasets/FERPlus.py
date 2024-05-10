@@ -1,5 +1,5 @@
 # dataset settings
-dataset_type = 'FER2013'
+dataset_type = 'FERPlus'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 
@@ -39,7 +39,7 @@ test_pipeline = [
     dict(type='Collect', keys=['img', ])
 ]
 
-base_path = 'data/FER2013/'
+base_path = 'kaggle/input/ferplus/FERPlus'
 image_path = base_path + 'Image/'    # we use realigned images
 
 data = dict(

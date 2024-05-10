@@ -150,34 +150,35 @@ class BaseDataset(Dataset, metaclass=ABCMeta):
         for metric in metrics:
             if metric not in allowed_metrics:
                 raise KeyError(f'metric {metric} is not supported.')
-            results = np.array(results)
             gt_labels = self.get_gt_labels()
+
+            # results = np.array(results)
             
             
-            if store_results:
-                res_copy = results.copy()
-                if len(results.shape) == 2:
-                    res_copy = res_copy.argmax(axis=1)
+            # if store_results:
+            #     res_copy = results.copy()
+            #     if len(results.shape) == 2:
+            #         res_copy = res_copy.argmax(axis=1)
                     
-                    acc = accuracy_score(gt_labels, res_copy)
-                    print(f'Acc is: {acc}')
+            #         acc = accuracy_score(gt_labels, res_copy)
+            #         print(f'Acc is: {acc}')
                 
-                wrong_cls = res_copy != gt_labels
+            #     wrong_cls = res_copy != gt_labels
                 
-                df_missaligned = pd.DataFrame({
-                    'Index': np.where(wrong_cls)[0],
-                    'Result': res_copy[wrong_cls],
-                    'GT_Label': gt_labels[wrong_cls]
-                })
+            #     df_missaligned = pd.DataFrame({
+            #         'Index': np.where(wrong_cls)[0],
+            #         'Result': res_copy[wrong_cls],
+            #         'GT_Label': gt_labels[wrong_cls]
+            #     })
                 
-                df_missaligned.to_csv(f'missaligned_{self.__class__.__name__}.csv', index=False)
+            #     df_missaligned.to_csv(f'missaligned_{self.__class__.__name__}.csv', index=False)
                 
-                all_res = pd.DataFrame({
-                    'Result': res_copy,
-                    'GT_Label': gt_labels
-                })
+            #     all_res = pd.DataFrame({
+            #         'Result': res_copy,
+            #         'GT_Label': gt_labels
+            #     })
                 
-                all_res.to_csv(f'all_results_{self.__class__.__name__}.csv', index=False)
+            #     all_res.to_csv(f'all_results_{self.__class__.__name__}.csv', index=False)
             
             results = np.vstack(results)
             

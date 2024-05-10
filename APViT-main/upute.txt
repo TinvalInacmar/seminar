@@ -1,0 +1,8 @@
+prepravi init.py u /mmcls/datasets/init.py
+
+tensorboarda
+
+pokreni apvit na fer2013 i testiraj sa post_process_model_weights.py
+
+
+multi_finetune=True (zadnji property u dictionaryu) za extractor i vit, pri testiranju

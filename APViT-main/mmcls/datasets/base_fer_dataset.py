@@ -99,6 +99,7 @@ class BaseFerDataset(BaseDataset):
         elif isinstance(self.ann_file, str):
             with open(self.ann_file) as f:
                 samples = [x.strip().split(' ') for x in f.readlines()]
+            print(samples)
             samples = [[i[0].replace('_aligned', ''), i[1]] for i in samples]
         else:
             raise TypeError('ann_file must be a str or None')
